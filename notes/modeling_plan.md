@@ -143,7 +143,7 @@
     "```\n",
     "\n",
     "## Modeling approach (update based on your question and data)\n",
-    "- **Baseline:** Logistic regression (interpretable, fast to train)\n",
+    "- **Baseline:** Regression (interpretable, fast to train)\n",
     "- **Metrics:** Accuracy, precision, recall\n",
     "- **Train/test split:** 80/20\n",
     "\n",
@@ -152,7 +152,7 @@
     "\n",
     "## Next steps (What you'll work on in the next class period; update/modify based on your plan)\n",
     "- Train/test split\n",
-    "- Fit baseline logistic regression\n",
+    "- Fit baseline regression\n",
     "- Evaluate and interpret results"
    ]
   }
