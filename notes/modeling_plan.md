@@ -6,7 +6,7 @@
 Predict the expected resolution time for complaints given factors that drive time.
 
 ## Data source
-- **S3 path:** `aws-nyc311-maciej21/modeling/modeling_data.csv`
+- **S3 path:** `s3://cmse492-maciej21-nyc311-533267005618-us-east-1-an/modeling/modeling_data.csv`
 - **Records:** 173,851
 - **Athena query:** `sql/athena_to_modeling.sql`
 

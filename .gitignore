@@ -1,0 +1,10 @@
+# Data Files
+agencies.csv
+complaints.csv
+modeling/modeling_data.csv
+
+# Notebook artifacts
+.ipynb_checkpoints/
+
+# macOS metadata
+.DS_Store

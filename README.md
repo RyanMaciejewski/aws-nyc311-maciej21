@@ -1,15 +1,15 @@
-# NYC 311 Service Request Analysis Project
+# NYC 311 Service Request Analysis and Modeling Project
 
 ## Project Description
-This project is an analysis of NYC 311 service requests to identify patterns in complaint types by agency and borough.
+This project analyzes NYC 311 service requests to understand complaint patterns and model the expected time to resolution.
 
 ## Data Source and Provenance
 - **Source**: [NYC Open Data 311 Service Requests](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2020-to-Present/erm2-nwe9/)
 - **Time period**: Jan 29–Mar 21, 2026 (Q1 2026)
 - **Prep**: Instructor-generated random sample of 200k complaints from 15 agencies
 - **Files**: 
-  - `raw/complaints.csv` (200k rows, main requests table)
-  - `raw/agencies.csv` (unique agencies lookup table)
+  - `complaints.csv` (200k rows, main requests table)
+  - `agencies.csv` (unique agencies lookup table)
 - **S3 paths** (fill after upload):
   - `s3://cmse492-maciej21-nyc311-533267005618-us-east-1-an/raw/complaints.csv`
   - `s3://cmse492-maciej21-nyc311-533267005618-us-east-1-an/raw/agencies.csv`
@@ -17,24 +17,25 @@ This project is an analysis of NYC 311 service requests to identify patterns in 
 ## Project Structure
 
 ```
-aws-nyc311-yourMSUNetID/      # Update with your GitHub repo name
-├── README.md                 # Data source, S3 paths, assumptions
-├── data-dictionary.md        # Column details
-├── raw/                      # Local copies of S3 uploads
-│   ├── complaints.csv
-│   └── agencies.csv
+aws-nyc311-maciej21/          # Repository root
+├── README.md                 # Project overview
+├── DATA_DICTIONARY.md        # Column details
+├── complaints.csv
+├── agencies.csv
+├── modeling/                 # Modeling dataset and outputs
+├── notebooks/                # Data prep and modeling notebooks
 ├── sql/                      # Athena queries
 ├── notes/                    # Observations, decisions
 └── reports/                  # Stakeholder outputs
 ```
 
 ## Data Summary
-See `data-dictionary.md` for full schema.
+See `DATA_DICTIONARY.md` for full schema.
 
 **Key relationships**: Join `complaints.agency = agencies.agency`
 
-**Stakeholder questions**:
-- [Paste your specific problem brief here]
+**Stakeholder question**:
+- Predict the expected resolution time for complaints given factors that drive time.
 
 ## Assumptions and Known Issues
 - Empty `closed_date` = open/unresolved requests
