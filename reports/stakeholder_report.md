@@ -1,7 +1,7 @@
 # Notebook Breakdown
 
 ## Business Question & Answer
-The modeling plan asks: predict the expected resolution time for complaints. The clearest takeaway is that `days_to_close` is strongly skewed toward very fast closures. In the modeling data, 62.07% of complaints close on day 0, 10.18% close on day 1, and 7.10% close on day 2. After that, the share drops off quickly, so the practical expectation for most complaints is same-day or next-day resolution, with a long tail of slower cases.
+The modeling plan asks: predict the expected resolution time for complaints. The clearest takeaway is that `days_to_close` is strongly skewed toward very fast closures. In the modeling data, 62.07% of complaints close on day 0, 10.18% close on day 1, and 7.10% close on day 2. After that, the share drops off quickly, so the expectation for most complaints is same day or next day resolution.
 
 ## Data prep and validation
 - The modeling dataset used for training has 173,851 rows and 8 columns.
@@ -16,13 +16,11 @@ The modeling plan asks: predict the expected resolution time for complaints. The
 ## SageMaker Linear Learner workflow
 - The SageMaker notebook uses the same regression target, but formats the data for Linear Learner with the label in the first column and no header row.
 - After encoding, the train/test split is 139,080 / 34,771 and the feature matrix has 167 columns.
-- Linear Learner beats the naive mean baseline: MAE 1.94 vs 2.79, RMSE 4.08 vs 5.15, and R² 0.3717 vs roughly 0 for the baseline.
+- Linear Learner beats the naive mean baseline: MAE 1.94 vs 2.79, RMSE 4.08 vs 5.15, and R^2 0.3717 vs roughly 0 for the baseline.
 
 ## Takeaways
 - Categorical variables carry useful signal, but the target remains noisy because most complaints resolve immediately while a small share take much longer.
 - The random forest regressor performs better than the linear model, likely because it can capture nonlinear relationships and interactions between features. However, the linear model still provides a significant improvement over the baseline.
 
 ## Future Plans
-- Try a Poisson-style model or another count-aware approach for `days_to_close`.
-- Handle missing or unusual `incident_zip` values more carefully before retraining.
 - Compare feature importance or coefficients across models to explain which complaint factors matter most.
